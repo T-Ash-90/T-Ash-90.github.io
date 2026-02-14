@@ -10,10 +10,10 @@ body {
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 0.2em;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 .logo {
@@ -64,12 +64,18 @@ section {
 }
 
 /* ---------------- Video ---------------- */
+.video {
+    max-width: 720px;
+    margin: 40px auto;
+}
+
 .video iframe {
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    aspect-ratio: 16 / 9;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
+
 
 /* ---------------- Music Links as Modern Buttons ---------------- */
 .music-links {
@@ -88,8 +94,8 @@ section {
 }
 
 .music-item .music-logo {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
