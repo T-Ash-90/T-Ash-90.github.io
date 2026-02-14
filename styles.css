@@ -1,73 +1,114 @@
+/* ---------------- Base Styles ---------------- */
 body {
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
     margin: 0;
-    padding: 40px 20px;
-    background-color: #ffffff;
+    padding: 20px;
+    background-color: #fdfdfd;
     color: #111;
     text-align: center;
-}
-
-nav {
-    margin-bottom: 40px;
-}
-
-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #555;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: #000;
+    line-height: 1.6;
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 3rem;
     margin-bottom: 0.2em;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 6px 15px rgba(0,0,0,0.2));
 }
 
 .tagline {
     color: #777;
+    font-style: italic;
 }
 
-img {
-    max-width: 400px;
-    width: 100%;
-    height: auto;
+/* ---------------- Navigation ---------------- */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
 }
 
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    padding: 8px 15px;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: #0073e6;
+    color: #fff;
+}
+
+/* ---------------- Content Sections ---------------- */
 section {
     margin: 60px 0;
 }
 
 .content {
-    max-width: 700px;
+    max-width: 720px;
     margin: 0 auto;
-    line-height: 1.6;
+    font-size: 1.1rem;
 }
 
-.shows-list {
-    list-style: none;
-    padding: 0;
+/* ---------------- Video ---------------- */
+.video iframe {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-.shows-list li {
-    margin: 20px 0;
+/* ---------------- Music Links as Modern Buttons ---------------- */
+.music-links {
+    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
-.music-links a {
-    display: inline-block;
-    margin: 10px 0;
-    font-weight: bold;
-    text-decoration: none;
+.music-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.music-item .music-logo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    margin-bottom: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.music-item .music-logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.music-item span {
+    font-weight: 600;
     color: #0073e6;
+    font-size: 1.1rem;
 }
 
-.music-links a:hover {
-    color: #005bb5;
-}
-
+/* ---------------- Gallery ---------------- */
 .gallery-list {
     display: flex;
     flex-direction: column;
@@ -80,8 +121,8 @@ section {
     max-width: 500px;
     width: 100%;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .gallery-list figcaption {
@@ -90,19 +131,72 @@ section {
     color: #555;
 }
 
+/* ---------------- Contact Info ---------------- */
 .contact-info {
     text-align: center;
     margin: 60px 0;
-    font-size: 1.2em;
+    font-size: 1.2rem;
 }
 
 .contact-info a {
     color: #0073e6;
-    font-weight: bold;
+    font-weight: 600;
     text-decoration: none;
 }
 
 .contact-info a:hover {
-    color: #005bb5;
     text-decoration: underline;
+}
+
+/* ---------------- Shows ---------------- */
+.shows-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.shows-list li {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.shows-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 1024px) {
+    .music-item .music-logo {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .music-item .music-logo {
+        width: 200px;
+        height: 200px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .content {
+        font-size: 1rem;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    .shows-list li {
+        padding: 12px;
+        margin: 15px 0;
+    }
 }
