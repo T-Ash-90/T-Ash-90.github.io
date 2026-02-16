@@ -256,8 +256,8 @@ section {
 }
 
 .past-shows .shows-list li:hover {
-    transform: none;
-    box-shadow: none;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
 }
 
 .past-shows .shows-list a {
