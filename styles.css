@@ -252,6 +252,7 @@ section {
     transform: none;
     font-style: italic;
     text-decoration: line-through;
+    text-decoration-color: rgba(0, 0, 0, 0.2);
 }
 
 .past-shows .shows-list li:hover {
@@ -263,6 +264,7 @@ section {
     color: #888;
     font-style: italic;
     text-decoration: line-through;
+    text-decoration-color: rgba(0, 0, 0, 0.2);
     pointer-events: none;
     cursor: default;
 }
