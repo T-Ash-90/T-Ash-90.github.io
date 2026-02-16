@@ -55,8 +55,17 @@ nav {
     display: flex;
     justify-content: center;
     gap: 25px;
-    margin-bottom: 40px;
     flex-wrap: wrap;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: white;
+    padding: 15px 0;
+    margin-bottom: 40px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 nav a {
@@ -232,6 +241,28 @@ section {
 
 .shows-content .shows-list a:hover {
     text-decoration: underline;
+}
+
+/* ---------------- Past Shows ---------------- */
+
+.past-shows .shows-list li {
+    background-color: #e0e0e0;
+    color: #777;
+    box-shadow: none;
+    transform: none;
+    font-style: italic;
+    text-decoration: line-through;
+}
+
+.past-shows .shows-list li:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.past-shows .shows-list a {
+    color: #888;
+    font-style: italic;
+    text-decoration: line-through;
 }
 
 /* ---------------- Responsive ---------------- */

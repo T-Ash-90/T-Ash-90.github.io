@@ -2,39 +2,78 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Kommende Auftritte</title>
+    <title>Auftritte</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
     <nav>
         <a href="https://tomash.live/">Home</a>
         <a href="https://tomashlive.bandcamp.com/" target="_blank">Anhören</a>
         <a href="https://www.youtube.com/@tomashlive/" target="_blank">YouTube</a>
-        <a href="shows">Kommende Auftritte</a>
+        <a href="shows">Auftritte</a>
         <a href="gallery">Fotogalerie</a>
         <a href="contact">Kontakt</a>
     </nav>
 
-    <header>
-        <h1>Kommende Auftritte</h1>
-    </header>
-
-    <section class="shows-content">
+    <!-- Past Shows -->
+    <section class="shows-content past-shows">
+        <h2>Vergangene Auftritte</h2>
         <ul class="shows-list">
-            <li>
+            <li data-date="2026-02-07">
+                <strong>07-02-2026:<br>
+                <a href="https://hfunplugged.de/" target="_blank">Herford Unplugged</a></strong><br>
+                Hotel Pfennigskrug, Lange Str. 11, 32052 Herford
+            </li>
+        </ul>
+    </section>
+
+    <!-- Upcoming Shows -->
+    <section id="upcoming" class="shows-content">
+        <h2>Kommende Auftritte</h2>
+        <ul class="shows-list">
+            <li data-date="2026-08-06">
                 <strong>06-08-2026:<br>
-                <a href="https://www.kulturbad-meinberg.de/programm/veranstaltung/musik-im-foyer-mit-tom-ash-1" target="_blank">Musik im Foyer mit Tom Ash</a></strong><br>
+                <a href="https://www.kulturbad-meinberg.de/programm/veranstaltung/musik-im-foyer-mit-tom-ash-1" target="_blank">
+                    Musik im Foyer mit Tom Ash
+                </a></strong><br>
                 Kurtheater, Parkstr. 10, 32805 Horn-Bad Meinberg
             </li>
-            <li>
+
+            <li data-date="2026-08-08">
                 <strong>08-08-2026:<br>
-                <a href="https://www.dbbo.de" target="_blank">Biergartenkonzert mit Tom Ash & Mr. Rhythm</a> </strong><br>
+                <a href="https://www.dbbo.de" target="_blank">
+                    Biergartenkonzert mit Tom Ash & Mr. Rhythm
+                </a></strong><br>
                 Druckerei Begegnungszentrum, Kaiserstr. 14, 32545 Bad Oeynhausen
             </li>
         </ul>
     </section>
+
+    <!-- Auto-Scroll Script -->
+    <script>
+        const today = new Date();
+        today.setHours(0,0,0,0);
+
+        const shows = document.querySelectorAll(".shows-list li");
+
+        shows.forEach(show => {
+            const dateString = show.dataset.date;
+            const showDate = new Date(dateString);
+            showDate.setHours(0,0,0,0);
+
+            if (showDate < today) {
+                show.classList.add("past");
+            }
+        });
+
+        const firstUpcoming = document.querySelector(".shows-list li:not(.past)");
+        if (firstUpcoming) {
+            firstUpcoming.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+    </script>
 
 </body>
 </html>
