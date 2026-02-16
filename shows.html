@@ -257,56 +257,5 @@
         }
     </script>
 
-    <!-- Group by year Script -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-
-            const currentYear = new Date().getFullYear();
-            const list = document.querySelector(".past-shows .shows-list");
-            const shows = Array.from(list.querySelectorAll("li"));
-
-            const showsByYear = {};
-
-            shows.forEach(show => {
-                const year = show.dataset.date.split("-")[0];
-
-                if (!showsByYear[year]) {
-                    showsByYear[year] = [];
-                }
-
-                showsByYear[year].push(show);
-            });
-
-            list.innerHTML = "";
-
-            const sortedYears = Object.keys(showsByYear).sort();
-
-            sortedYears.forEach(year => {
-
-                const details = document.createElement("details");
-
-                if (parseInt(year) === currentYear) {
-                    details.setAttribute("open", "");
-                }
-
-                const summary = document.createElement("summary");
-                summary.textContent = year;
-
-                const ul = document.createElement("ul");
-                ul.classList.add("shows-list");
-
-                showsByYear[year].forEach(show => {
-                    ul.appendChild(show);
-                });
-
-                details.appendChild(summary);
-                details.appendChild(ul);
-                list.appendChild(details);
-            });
-
-        });
-    </script>
-
-
 </body>
 </html>
