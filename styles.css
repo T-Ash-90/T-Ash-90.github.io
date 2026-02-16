@@ -263,6 +263,8 @@ section {
     color: #888;
     font-style: italic;
     text-decoration: line-through;
+    pointer-events: none;
+    cursor: default;
 }
 
 /* ---------------- Responsive ---------------- */
