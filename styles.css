@@ -243,28 +243,19 @@ section {
     text-decoration: underline;
 }
 
-/* ---------------- Past Shows ---------------- */
+/* ---------------- Past Shows (Dynamic) ---------------- */
 
-.past-shows .shows-list li {
+.shows-list li.past {
     background-color: #e0e0e0;
     color: #777;
     box-shadow: none;
-    transform: none;
     font-style: italic;
     text-decoration: line-through;
     text-decoration-color: rgba(0, 0, 0, 0.2);
 }
 
-.past-shows .shows-list li:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-}
-
-.past-shows .shows-list a {
+.shows-list li.past a {
     color: #888;
-    font-style: italic;
-    text-decoration: line-through;
-    text-decoration-color: rgba(0, 0, 0, 0.2);
     pointer-events: none;
     cursor: default;
 }
