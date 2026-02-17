@@ -200,7 +200,6 @@ section {
 }
 
 /* ---------------- Shows ---------------- */
-
 .shows-content {
     font-family: 'Lora', serif;
     max-width: 720px;
@@ -244,7 +243,6 @@ section {
 }
 
 /* ---------------- Past Shows (Dynamic) ---------------- */
-
 .shows-list li.past {
     background-color: #e0e0e0;
     color: #777;

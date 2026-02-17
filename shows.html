@@ -192,6 +192,18 @@
         </div>
     </section>
 
+    <section class="music-links">
+        <a href="https://tomashlive.bandcamp.com/" target="_blank" class="music-item">
+            <img src="images/bandcamp.jpg" alt="Album auf Bandcamp anhören" class="music-logo">
+            <span>Album auf Bandcamp anhören</span>
+        </a>
+
+        <a href="https://www.youtube.com/@tomashlive" target="_blank" class="music-item">
+            <img src="images/youtube.jpg" alt="Zum YouTube-Kanal" class="music-logo">
+            <span>Zum YouTube-Kanal</span>
+        </a>
+    </section>
+
 
     <!-- Javascript -->
     <script>
@@ -203,7 +215,7 @@
         const list = document.querySelector(".shows-list");
         const shows = Array.from(list.querySelectorAll("li"));
 
-        // ---- SORT BY DATE ----
+        // ---- Sort by date ----
         shows.sort((a, b) => {
             return new Date(a.dataset.date) - new Date(b.dataset.date);
         });
@@ -211,7 +223,7 @@
         // Re-append in sorted order
         shows.forEach(show => list.appendChild(show));
 
-        // ---- PROCESS EACH SHOW ----
+        // ---- Process each show ----
         shows.forEach(show => {
 
             const showDate = new Date(show.dataset.date);
