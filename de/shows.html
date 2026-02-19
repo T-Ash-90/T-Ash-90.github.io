@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auftritte</title>
+    <meta name="description" content="Tom Ash - Übersicht seiner Auftritte, Gigs und Konzerte.">
+    <link rel="alternate" hreflang="de" href="https://tomash.live/de/shows.html">
+    <link rel="alternate" hreflang="en" href="https://tomash.live/en/shows.html">
+    <link rel="canonical" href="https://tomash.live/de/shows.html">
+    <link rel="icon" href="/assets/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+
+<body>
+
+    <div id="nav-placeholder"></div>
+
+    <!-- Shows List -->
+    <section class="shows-content">
+        <div class="shows-wrapper">
+            <ul class="shows-list">
+                <!-- Shows will be loaded here dynamically from shows-list.html-->
+            </ul>
+        </div>
+    </section>
+
+    <section class="music-links">
+        <a href="https://tomashlive.bandcamp.com/" target="_blank" class="music-item">
+            <img src="/assets/images/bandcamp.jpg" alt="Bandcamp" class="music-logo">
+            <span>Bandcamp</span>
+        </a>
+
+        <a href="https://www.youtube.com/@tomashlive" target="_blank" class="music-item">
+            <img src="/assets/images/youtube.jpg" alt="YouTube" class="music-logo">
+            <span>YouTube</span>
+        </a>
+    </section>
+
+    <!-- Load Shows & Format Dates -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const list = document.querySelector(".shows-list");
+        const today = new Date();
+        today.setHours(0,0,0,0);
+
+        // ---- Load shows-list.html ----
+        fetch("/shared/shows-list.html")
+            .then(response => response.text())
+            .then(data => {
+                list.innerHTML = data;
+
+                const shows = Array.from(list.querySelectorAll("li"));
+
+                // ---- Sort by date ----
+                shows.sort((a, b) => new Date(a.dataset.date) - new Date(b.dataset.date));
+                shows.forEach(show => list.appendChild(show));
+
+                // ---- Process each show ----
+                shows.forEach(show => {
+                    const showDate = new Date(show.dataset.date);
+                    showDate.setHours(0,0,0,0);
+
+                    // Format DD-MM-YYYY
+                    const day = String(showDate.getDate()).padStart(2, '0');
+                    const month = String(showDate.getMonth() + 1).padStart(2, '0');
+                    const year = showDate.getFullYear();
+                    const formattedDate = `${day}-${month}-${year}`;
+
+                    const strong = show.querySelector("strong");
+                    if (strong && !strong.dataset.dateAdded) {
+                        strong.innerHTML = `<strong style="font-size: 1.2rem;">${formattedDate}: ${strong.innerHTML}</strong>`;
+                        strong.dataset.dateAdded = "true";
+                    }
+
+                    // Mark past shows
+                    if (showDate < today) {
+                        show.classList.add("past");
+                    }
+                });
+
+                // ---- Scroll to first upcoming ----
+                const firstUpcoming = document.querySelector(".shows-list li:not(.past)");
+                if (firstUpcoming) {
+                    firstUpcoming.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+                }
+
+            })
+            .catch(err => console.error("Fehler beim Laden der Shows:", err));
+    });
+    </script>
+
+    <script src="/assets/js/load-nav.js"></script>
+
+</body>
+</html>

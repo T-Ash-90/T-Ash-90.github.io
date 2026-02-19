@@ -1,76 +1,34 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tom Ash</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/favicon/site.webmanifest">
-    <link rel="icon" href="/favicon/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting…</title>
+    <script>
+        (function() {
+
+            const userLang = localStorage.getItem('siteLanguage');
+
+            if (userLang === 'de') {
+                window.location.href = '/de/index.html';
+            } else if (userLang === 'en') {
+                window.location.href = '/en/index.html';
+            } else {
+
+                const lang = navigator.language || navigator.userLanguage || 'en';
+                if (lang.toLowerCase().startsWith('de')) {
+                    window.location.href = '/de/index.html';
+                } else {
+                    window.location.href = '/en/index.html';
+                }
+            }
+        })();
+    </script>
 </head>
 <body>
-
-    <nav>
-        <a href="https://tomash.live/">Home</a>
-        <a href="https://tomashlive.bandcamp.com/" target="_blank">Anhören</a>
-        <a href="https://www.youtube.com/@tomashlive/" target="_blank">YouTube</a>
-        <a href="shows">Auftritte</a>
-        <a href="gallery">Fotogalerie</a>
-        <a href="contact">Kontakt</a>
-    </nav>
-
-    <header>
-        <a href="https://tomashlive.bandcamp.com" target="_blank">
-            <img src="images/tomlogo.jpg" alt="Tom Ash Logo" class="logo">
-        </a>
-        <p class="tagline">🎶 Acoustic Folk-Rock 🎶</p>
-    </header>
-
-    <section class="content">
-        <p>
-          <br>Tom Ash ist ein Singer-Songwriter aus Nottingham, England. Als akustischer Fingerstyle-Gitarrist verbindet er virtuoses Gitarrenspiel mit ausdrucksstarken Vocals und ehrlichen, gefühlvollen Texten. Seine Songs erzählen Geschichten, mal leise und intim, mal kraftvoll und mitreißend.
-        <p>
-    </section>
-
-    <section class="collage">
-        <img src="images/tomashlive.jpg" alt="Tom Ash Live" class="image">
-    </section>
-
-    <section class="content">
-        <p>
-          Mit einem breit gefächerten Spektrum musikalischer Einflüsse hat Tom über Jahre hinweg seinen ganz eigenen Sound entwickelt, authentisch, handgemacht und voller Emotion. Durch den Einsatz vielfältiger Spieltechniken, perkussiver Elemente und einer kreativen Nutzung von Effekten erschafft er einen überraschend massiven, vielschichtigen Klang, der weit über das hinausgeht, was man von einer einzelnen akustischen Gitarre erwarten würde. Seine Musik lebt von Dynamik, feinen Nuancen und klanglicher Tiefe.
-        </p>
-    </section>
-
-    <section class="video">
-        <iframe
-            src="https://www.youtube.com/embed/AHMbB0CLAcE"
-            title="Tom Ash Live Performance"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-        </iframe>
-    </section>
-
-    <section class="content">
-        <p>
-          Ob auf kleinen Bühnen oder bei größeren Veranstaltungen überzeugt Tom mit musikalischer Präzision und natürlicher Ausstrahlung. Neben seinen eigenen Kompositionen interpretiert er ausgewählte Coverversionen auf seine ganz persönliche Art und schafft besondere Live-Momente mit spürbarer Nähe zum Publikum. Seine Performance berührt, begeistert und bleibt im Gedächtnis.
-    </section>
-
-    <section class="music-links">
-        <a href="https://tomashlive.bandcamp.com/" target="_blank" class="music-item">
-            <img src="images/bandcamp.jpg" alt="Album auf Bandcamp anhören" class="music-logo">
-            <span>Album auf Bandcamp anhören</span>
-        </a>
-
-        <a href="https://www.youtube.com/@tomashlive" target="_blank" class="music-item">
-            <img src="images/youtube.jpg" alt="Zum YouTube-Kanal" class="music-logo">
-            <span>Zum YouTube-Kanal</span>
-        </a>
-    </section>
-
+    <p>Redirecting… If you are not redirected automatically, you can go to the
+        <a href="/de/index.html">German homepage</a> or
+        <a href="/en/index.html">English homepage</a>.
+    </p>
 </body>
 </html>
