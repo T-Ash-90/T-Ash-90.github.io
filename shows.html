@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Auftritte</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -160,7 +160,7 @@
 
                 <li data-date="2023-09-23">
                     <strong>Zwiebelmarkt</strong><br>
-                    Stadt Bünde, Bahnhofstraße 13-15<br>
+                    Rathausplatz,<br>
                     32257 Bünde, DE
                 </li>
 
@@ -291,7 +291,7 @@
             // Insert date
             const strong = show.querySelector("strong");
             if (strong && !strong.dataset.dateAdded) {
-                strong.innerHTML = `<strong>${formattedDate}: ${strong.innerHTML}</strong>`;
+                strong.innerHTML = `<strong style="font-size: 1.2rem;">${formattedDate}: ${strong.innerHTML}</strong>`;
                 strong.dataset.dateAdded = "true";
             }
 
