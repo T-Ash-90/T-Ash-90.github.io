@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
             navContainer.innerHTML = data;
 
-            const toggle = navContainer.querySelector(".lang-toggle");
+            const toggle = navContainer.querySelector("a.lang-toggle");
             if (toggle) {
                 toggle.href = `${isEnglish ? "/de/" : "/en/"}${currentPage}`;
             }
