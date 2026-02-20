@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!navContainer) return;
 
     const path = window.location.pathname;
-    const currentPage = path.split("/").pop() || "index";
+    const currentPage = path.split("/").pop();
     const isEnglish = path.includes("/en/");
 
     const navFile = isEnglish ? "/shared/nav-en.html" : "/shared/nav-de.html";
