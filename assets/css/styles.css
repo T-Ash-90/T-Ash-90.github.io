@@ -58,14 +58,21 @@ nav {
     flex-wrap: wrap;
     align-items: center;
 
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
+
     z-index: 1000;
 
     background: white;
     padding: 15px 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     border-bottom: 1px solid #eee;
+}
+
+body {
+    padding-top: 80px;
 }
 
 nav a {
