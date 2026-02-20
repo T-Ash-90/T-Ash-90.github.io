@@ -51,10 +51,15 @@ h1 {
 }
 
 /* ---------------- Navigation ---------------- */
+#nav-placeholder {
+    min-height: 80px;
+}
+
 nav {
     display: flex;
     justify-content: center;
     gap: 25px;
+    row-gap: 10px;
     flex-wrap: wrap;
     align-items: center;
 
@@ -62,6 +67,7 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
+    box-sizing: border-box;
 
     z-index: 1000;
 
@@ -69,10 +75,6 @@ nav {
     padding: 15px 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     border-bottom: 1px solid #eee;
-}
-
-body {
-    padding-top: 80px;
 }
 
 nav a {

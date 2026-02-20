@@ -17,6 +17,27 @@ document.addEventListener("DOMContentLoaded", function () {
             if (toggle) {
                 toggle.href = `${isEnglish ? "/de/" : "/en/"}${currentPage}`;
             }
+
+            setupNavObserver();
         })
         .catch(error => console.error("Error loading navigation:", error));
 });
+
+function setupNavObserver() {
+    const nav = document.querySelector("nav");
+    if (!nav) return;
+
+    function adjustBodyPadding() {
+        document.body.style.paddingTop = nav.offsetHeight + "px";
+    }
+
+    adjustBodyPadding();
+
+    const observer = new ResizeObserver(() => {
+        adjustBodyPadding();
+    });
+
+    observer.observe(nav);
+
+    window.addEventListener("resize", adjustBodyPadding);
+}
