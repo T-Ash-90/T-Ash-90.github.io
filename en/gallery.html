@@ -25,26 +25,7 @@
         <p class="tagline">Gallery of Tom Ash performances and live moments.</p>
     </header>
 
-    <section class="gallery-list">
-        <figure>
-            <img src="/assets/images/tom1.jpg" alt="Tom Ash 1">
-        </figure>
-        <figure>
-            <img src="/assets/images/tom2.jpg" alt="Tom Ash 2">
-        </figure>
-        <figure>
-            <img src="/assets/images/tom3.jpg" alt="Tom Ash 3">
-        </figure>
-        <figure>
-            <img src="/assets/images/tom4.jpg" alt="Tom Ash 4">
-        </figure>
-        <figure>
-            <img src="/assets/images/tom5.jpg" alt="Tom Ash 5">
-        </figure>
-        <figure>
-            <img src="/assets/images/tom6.jpg" alt="Tom Ash 6">
-        </figure>
-    </section>
+    <section class="gallery-list" id="gallery-placeholder"></section>
 
     <section class="music-links">
         <a href="https://tomashlive.bandcamp.com/" target="_blank" class="music-item">
@@ -57,6 +38,41 @@
             <span>YouTube</span>
         </a>
     </section>
+
+    <script>
+      fetch('/shared/images-list.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('gallery-placeholder').innerHTML = data;
+          initLightbox();
+        })
+        .catch(error => console.error('Error loading gallery:', error));
+
+
+      function initLightbox() {
+        const images = document.querySelectorAll('#gallery-placeholder img');
+
+        images.forEach(img => {
+          img.style.cursor = "pointer";
+          img.addEventListener("click", () => openLightbox(img.src));
+        });
+      }
+
+      function openLightbox(src) {
+        const overlay = document.createElement("div");
+        overlay.id = "lightbox-overlay";
+        overlay.innerHTML = `
+          <span class="lightbox-close">&times;</span>
+          <img src="${src}" class="lightbox-image">
+        `;
+
+        document.body.appendChild(overlay);
+
+        overlay.addEventListener("click", () => {
+          overlay.remove();
+        });
+      }
+    </script>
 
     <script src="/assets/js/load-nav.js"></script>
 
