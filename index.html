@@ -10,16 +10,16 @@
             const userLang = localStorage.getItem('siteLanguage');
 
             if (userLang === 'de') {
-                window.location.href = '/de/index.html';
+                window.location.href = '/de/';
             } else if (userLang === 'en') {
-                window.location.href = '/en/index.html';
+                window.location.href = '/en/';
             } else {
 
                 const lang = navigator.language || navigator.userLanguage || 'en';
                 if (lang.toLowerCase().startsWith('de')) {
-                    window.location.href = '/de/index.html';
+                    window.location.href = '/de/';
                 } else {
-                    window.location.href = '/en/index.html';
+                    window.location.href = '/en/';
                 }
             }
         })();
@@ -27,8 +27,8 @@
 </head>
 <body>
     <p>Redirecting… If you are not redirected automatically, you can go to the
-        <a href="/de/index.html">German homepage</a> or
-        <a href="/en/index.html">English homepage</a>.
+        <a href="/de/">German homepage</a> or
+        <a href="/en/">English homepage</a>.
     </p>
 </body>
 </html>
