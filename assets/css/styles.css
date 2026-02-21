@@ -61,25 +61,21 @@ h1 {
 }
 
 nav {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    row-gap: 8px;
-    flex-wrap: wrap;
-    align-items: center;
-
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     box-sizing: border-box;
-
     z-index: 1000;
 
     background: white;
-    padding: 10px 0;
+    padding: 10px 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     border-bottom: 1px solid #eee;
+
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
 }
 
 nav a {
@@ -95,6 +91,14 @@ nav a {
 nav a:hover {
     background-color: #2c6f91;
     color: #fff;
+}
+
+.nav-links {
+    grid-column: 2;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .lang-toggle {
@@ -116,6 +120,14 @@ nav a:hover {
     color: #2c6f91;
     cursor: default;
     background: rgba(44,111,145,0.1);
+}
+
+.lang-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    margin-left: auto;
 }
 
 /* ---------------- Content Sections ---------------- */
@@ -349,5 +361,15 @@ section {
     .shows-list li {
         padding: 12px;
         margin: 15px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px 20px;
+        justify-items: center;
     }
 }

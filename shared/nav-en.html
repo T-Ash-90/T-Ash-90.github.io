@@ -1,8 +1,14 @@
 <nav>
+  <div class="nav-links">
     <a href="/en/">Home</a>
     <a href="/en/gallery">Gallery</a>
     <a href="/en/shows">Shows</a>
     <a href="/en/contact">Contact</a>
-    <a href="/de/" class="lang-toggle" onclick="localStorage.setItem('siteLanguage','de')">🇩🇪 DE</a>
-    <span class="lang-toggle current">🇬🇧 EN</span>
+  </div>
+
+    <div class="lang-group">
+        <a href="/de/" class="lang-toggle"
+           onclick="localStorage.setItem('siteLanguage','de')">🇩🇪</a>
+        <span class="lang-toggle current">🇬🇧</span>
+    </div>
 </nav>

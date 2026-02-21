@@ -1,8 +1,14 @@
 <nav>
-    <a href="/de/">Startseite</a>
-    <a href="/de/gallery">Fotogalerie</a>
-    <a href="/de/shows">Auftritte</a>
-    <a href="/de/contact">Kontakt</a>
-    <span class="lang-toggle current">🇩🇪 DE</span>
-    <a href="/en/" class="lang-toggle" onclick="localStorage.setItem('siteLanguage','en')">🇬🇧 EN</a>
+  <div class="nav-links">
+      <a href="/de/">Startseite</a>
+      <a href="/de/gallery">Fotogalerie</a>
+      <a href="/de/shows">Auftritte</a>
+      <a href="/de/contact">Kontakt</a>
+  </div>
+
+    <div class="lang-group">
+        <span class="lang-toggle current">🇩🇪</span>
+        <a href="/en/" class="lang-toggle"
+           onclick="localStorage.setItem('siteLanguage','en')">🇬🇧</a>
+    </div>
 </nav>
