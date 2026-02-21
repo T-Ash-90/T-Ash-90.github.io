@@ -82,10 +82,10 @@ nav a {
     text-decoration: none;
     color: #555;
     font-weight: 500;
-    font-size: 0.9rem;
-    padding: 5px 8px;
+    font-size: clamp(0.8rem, 2.5vw, 1.3rem);
+    padding: 4px 8px;
     transition: all 0.3s ease;
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
 nav a:hover {
@@ -364,7 +364,7 @@ section {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 449px) {
     .nav-links {
         width: 100%;
         display: grid;
