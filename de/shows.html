@@ -20,6 +20,10 @@
 
     <div id="nav-placeholder"></div>
 
+    <header>
+        <h1>Auftritte</h1>
+    </header>
+
     <!-- Shows List -->
     <section class="shows-content">
         <div class="shows-wrapper">
@@ -49,7 +53,7 @@
         const today = new Date();
         today.setHours(0,0,0,0);
 
-        // ---- Load shows-list.html ----
+        // ---- Load shared shows list ----
         fetch("/shared/shows-list.html")
             .then(response => response.text())
             .then(data => {
@@ -58,8 +62,11 @@
                 const shows = Array.from(list.querySelectorAll("li"));
 
                 // ---- Sort by date ----
-                shows.sort((a, b) => new Date(a.dataset.date) - new Date(b.dataset.date));
+                shows.sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date));
                 shows.forEach(show => list.appendChild(show));
+
+                let nextUpcoming = null;
+                let smallestDiff = Infinity;
 
                 // ---- Process each show ----
                 shows.forEach(show => {
@@ -78,23 +85,29 @@
                         strong.dataset.dateAdded = "true";
                     }
 
+                    const diff = showDate - today;
+
                     // Mark past shows
-                    if (showDate < today) {
+                    if (diff < 0) {
                         show.classList.add("past");
+                    }
+                    // Find closest upcoming show
+                    else if (diff < smallestDiff) {
+                        smallestDiff = diff;
+                        nextUpcoming = show;
                     }
                 });
 
-                // ---- Scroll to first upcoming ----
-                const firstUpcoming = document.querySelector(".shows-list li:not(.past)");
-                if (firstUpcoming) {
-                    firstUpcoming.scrollIntoView({
+                // ---- Scroll to closest upcoming ----
+                if (nextUpcoming) {
+                    nextUpcoming.scrollIntoView({
                         behavior: "smooth",
                         block: "center"
                     });
                 }
 
             })
-            .catch(err => console.error("Fehler beim Laden der Shows:", err));
+            .catch(err => console.error("Error loading shows:", err));
     });
     </script>
 
