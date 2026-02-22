@@ -82,7 +82,7 @@ nav a {
     text-decoration: none;
     color: #555;
     font-weight: 500;
-    font-size: clamp(0.75rem, 3vw, 1.25rem);
+    font-size: clamp(0.75rem, 3vw, 1.1rem);
     padding: 4px 8px;
     transition: all 0.3s ease;
     border-radius: 2px;
