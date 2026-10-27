@@ -373,3 +373,28 @@ section {
         justify-items: center;
     }
 }
+
+/* ---------------- Footer ---------------- */
+.site-footer {
+    margin-top: 70px;
+    padding: 25px 15px;
+    border-top: 1px solid #eee;
+    color: #777;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.site-footer a {
+    color: #2c6f91;
+    text-decoration: none;
+    margin: 0 8px;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
+
+.site-footer p {
+    margin: 12px 0 0;
+    font-size: 0.8rem;
+}
