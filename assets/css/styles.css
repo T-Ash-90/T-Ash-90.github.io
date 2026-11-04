@@ -1,6 +1,6 @@
 /* ---------------- Base Styles ---------------- */
 body {
-    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 20px;
     background-color: #fdfdfd;
@@ -136,7 +136,7 @@ section {
 }
 
 .content {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: Georgia, 'Times New Roman', serif;
     max-width: 720px;
     margin: 0 auto;
     font-size: 1.3rem;
@@ -208,7 +208,7 @@ section {
 
 /* ---------------- Contact Info ---------------- */
 .contact-info {
-    font-family: 'Lora', serif;
+    font-family: Georgia, 'Times New Roman', serif;
     text-align: center;
     margin: 60px 0;
     font-size: 1.2rem;
@@ -226,7 +226,7 @@ section {
 
 /* ---------------- Shows ---------------- */
 .shows-content {
-    font-family: 'Lora', serif;
+    font-family: Georgia, 'Times New Roman', serif;
     max-width: 720px;
     margin: 0 auto;
     font-size: 1.1rem;
