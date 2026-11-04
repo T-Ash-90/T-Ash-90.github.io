@@ -10,14 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
         de: {
             title: "Du verlässt jetzt diese Website",
             message: "Du wirst zu {site} weitergeleitet.",
-            cancel: "Abbrechen",
-            continue: "Weiter zu {site}"
+            continue: "Weiter zu {site}",
+            close: "Schließen"
         },
         en: {
             title: "You're leaving this website",
             message: "You are being redirected to {site}.",
-            cancel: "Cancel",
-            continue: "Continue to {site}"
+            continue: "Continue to {site}",
+            close: "Close"
         }
     };
 
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!link) return;
 
-        // Ignore modified clicks, middle clicks and non-primary clicks
+        // Preserve modified clicks and middle clicks
         if (
             event.button !== 0 ||
             event.ctrlKey ||
@@ -43,9 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Only handle links to the supported services
+        // Identify destination
         const url = new URL(link.href);
-
         const hostname = url.hostname.toLowerCase();
 
         let destination;
@@ -66,30 +65,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
         event.preventDefault();
 
-        // Prevent multiple dialogs from being opened
+        // Prevent multiple dialogs
         if (document.querySelector(".external-link-dialog")) return;
 
         // Create dialog
         const dialog = document.createElement("dialog");
         dialog.className = "external-link-dialog";
 
-        // Create dialog content safely
+        // Close button
+        const closeButton = document.createElement("button");
+        closeButton.type = "button";
+        closeButton.className = "dialog-close";
+        closeButton.textContent = "×";
+        closeButton.setAttribute("aria-label", text.close);
+        closeButton.title = text.close;
+
+        // Heading
         const heading = document.createElement("h2");
         heading.textContent = text.title;
 
+        // Message
         const message = document.createElement("p");
         message.textContent = text.message.replace(
             "{site}",
             destination
         );
 
+        // Continue button
         const buttons = document.createElement("div");
         buttons.className = "dialog-buttons";
-
-        const cancelButton = document.createElement("button");
-        cancelButton.type = "button";
-        cancelButton.className = "dialog-cancel";
-        cancelButton.textContent = text.cancel;
 
         const continueButton = document.createElement("button");
         continueButton.type = "button";
@@ -99,12 +103,13 @@ document.addEventListener("DOMContentLoaded", () => {
             destination
         );
 
-        buttons.append(cancelButton, continueButton);
-        dialog.append(heading, message, buttons);
+        buttons.appendChild(continueButton);
+
+        dialog.append(closeButton, heading, message, buttons);
 
         document.body.appendChild(dialog);
 
-        // Close and remove dialog
+        // Close dialog
         const closeDialog = () => {
             if (dialog.open) {
                 dialog.close();
@@ -117,10 +122,10 @@ document.addEventListener("DOMContentLoaded", () => {
             dialog.remove();
         });
 
-        // Cancel
-        cancelButton.addEventListener("click", closeDialog);
+        // Close button
+        closeButton.addEventListener("click", closeDialog);
 
-        // Continue in a new tab
+        // Continue in new tab
         continueButton.addEventListener("click", () => {
             window.open(
                 link.href,
@@ -131,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
             closeDialog();
         });
 
-        // Close when clicking outside the dialog
+        // Close when clicking outside
         dialog.addEventListener("click", event => {
             if (event.target === dialog) {
                 closeDialog();
@@ -141,8 +146,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Show dialog
         dialog.showModal();
 
-        // Set initial keyboard focus
-        cancelButton.focus();
+        // Initial keyboard focus
+        continueButton.focus();
 
     });
 
